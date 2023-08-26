@@ -1,0 +1,56 @@
+.accordion__panel {
+  position: relative;
+  isolation: isolate;
+  flex-basis: calc((var(--_panel-padding) * 2) + var(--_btn-size));
+  overflow: hidden;
+  padding: var(--_panel-padding);
+}
+
+.accordion__panel:nth-of-type(1) {
+  --_panel-color: hsl(160, 70%, 50%);
+}
+
+.accordion__panel:nth-of-type(2) {
+  --_panel-color: hsl(184, 70%, 50%);
+}
+
+.accordion__panel:nth-of-type(3) {
+  --_panel-color: hsl(220, 70%, 50%);
+}
+
+.accordion__panel:nth-of-type(4) {
+  --_panel-color: hsl(350, 70%, 50%);
+}
+
+.accordion__panel:nth-of-type(5) {
+  --_panel-color: hsl(20, 70%, 50%);
+}
+
+.accordion__image {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.accordion__btn {
+  width: var(--_btn-size);
+  background: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+
+.accordion__icon {
+  /* Underscore basically means its just for the accordion and not present in root element */
+  fill: var(--_panel-color);
+  background: hsl(0, 0%, 0%, 0.5);
+  width: 3rem;
+  aspect-ratio: 1 / 1;
+  padding: 0.75rem;
+  border-radius: 50%;
+}
