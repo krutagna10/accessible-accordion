@@ -1,3 +1,14 @@
-# React Template
+# Accessible Accordion
 
-This repository provides a React template powered by Vite, a fast build tool and development server.
+### Links
+
+- Live Site URL: [https://accessible-accordion-10.netlify.app/]
+
+### Screenshot
+
+![](screenshot/Screenshot.png)
+
+### Built with
+
+- React
+

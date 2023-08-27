@@ -1,29 +1,34 @@
 import "./Panel.css";
 
-function Panel({ id, title, description, icon, image, alt }) {
+function Panel({ panel, activeIndex, onActiveIndexChange }) {
   return (
-    <div className="accordion__panel">
-      <h2 id={`panel-${id}-heading`}>
+    <div
+      className={`accordion__panel ${panel.id === activeIndex ? "active" : ""}`}
+      onClick={() => {
+        onActiveIndexChange(panel.id);
+      }}
+    >
+      <h2 id={`panel-${panel.id}-heading`}>
         <button
           className="accordion__btn"
-          aria-controls={`panel-${id}-content`}
-          aria-expanded="true"
+          aria-controls={`panel-${panel.id}-content`}
+          aria-expanded={panel.id === activeIndex}
         >
-          <span className="accordion-title">{title}</span>
+          <span className="accordion__title">{panel.title}</span>
           <svg aria-hidden="true" className="accordion__icon">
-            <use xlinkHref={icon}></use>
+            <use xlinkHref={panel.icon}></use>
           </svg>
         </button>
       </h2>
       <div
-        id={`panel-${1}-content`}
+        id={`panel-${panel.id}-content`}
         className="accordion__content"
-        aria-labelledby={`panel-${id}-heading`}
-        aria-hidden="false"
+        aria-labelledby={`panel-${panel.id}-heading`}
+        aria-hidden={panel.id === activeIndex}
         role="region"
       >
-        <p>{description}</p>
-        <img className="accordion__image" src={image} alt={alt} />
+        <p className="accordion__description">{panel.description}</p>
+        <img className="accordion__image" src={panel.image} alt={panel.alt} />
       </div>
     </div>
   );
